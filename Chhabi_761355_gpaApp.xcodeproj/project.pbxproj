@@ -80,9 +80,9 @@
 			isa = PBXGroup;
 			children = (
 				9B65ABDE237F0E710069A3F7 /* StudentMainTableViewController.swift */,
-				9B65ABCE237F0BC40069A3F7 /* ViewController.swift */,
 				9B65ABE9237F1A970069A3F7 /* DeatilViewController.swift */,
 				9B65ABEB237F1ABB0069A3F7 /* GPAViewController.swift */,
+				9B65ABCE237F0BC40069A3F7 /* ViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";

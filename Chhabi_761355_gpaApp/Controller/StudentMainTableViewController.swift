@@ -22,12 +22,13 @@ class StudentMainTableViewController: UITableViewController, UISearchBarDelegate
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+// ViewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
     }
     
-    // MARK: - Table view data source
+// MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -41,8 +42,9 @@ class StudentMainTableViewController: UITableViewController, UISearchBarDelegate
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // recycle cells
         let cell = tableView.dequeueReusableCell(withIdentifier: "studentCell", for: indexPath)
-
+// show student name on the label
         cell.textLabel?.text = "\(students[indexPath.row].firstName) \(students[indexPath.row].lastName)"
 
         return cell
@@ -85,10 +87,11 @@ class StudentMainTableViewController: UITableViewController, UISearchBarDelegate
     */
 
   
-    // MARK: - Navigation
+// MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+   
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+ {
        
     if (segue.identifier == "gpa") {
         
@@ -96,10 +99,11 @@ class StudentMainTableViewController: UITableViewController, UISearchBarDelegate
     if let tableViewCell = sender as? UITableViewCell
     {
     if let index = tableView.indexPath(for: tableViewCell)?.row
-    {
+       {
     destinationVC.studentIdentity = students[index].studentID
-     }
+        }
     }
-                             }
+                                    }
 } // END OF PREPARE SEGUE
-}
+    
+} //End of class
