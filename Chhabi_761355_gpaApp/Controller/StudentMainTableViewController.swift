@@ -90,7 +90,7 @@ class StudentMainTableViewController: UITableViewController {
        
     if (segue.identifier == "gpa") {
         
-    let destinationVC = segue.destination as! StudentGPAViewController
+    let destinationVC = segue.destination as! GPAViewController
     if let tableViewCell = sender as? UITableViewCell
     {
     if let index = tableView.indexPath(for: tableViewCell)?.row

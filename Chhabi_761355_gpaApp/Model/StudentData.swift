@@ -12,7 +12,7 @@ struct Student {
     var firstName : String
     var lastName : String
     var studentID : Int
-    var studentGPA = ["MAD3004" : 0.0, "MAD2303" : 0.0, "MAD3463" : 0.0, "MAD3115" : 0.0, "MAD3125" : 0.0]
+    //var studentGPA = ["MAD3004" : 0.0, "MAD2303" : 0.0, "MAD3463" : 0.0, "MAD3115" : 0.0, "MAD3125" : 0.0]
 }
 var students = [Student]()
-var nerdStudents: [Student] = []
+//var nerdStudents: [Student] = []
