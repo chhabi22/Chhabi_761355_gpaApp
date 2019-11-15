@@ -20,6 +20,11 @@ class StudentMainTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -41,7 +46,7 @@ class StudentMainTableViewController: UITableViewController {
         return cell
     }
     
-
+  
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -84,12 +89,15 @@ class StudentMainTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
     if (segue.identifier == "gpa") {
-    // Send Student ID
+        
     let destinationVC = segue.destination as! StudentGPAViewController
-    if let tableViewCell = sender as? UITableViewCell {
-    if let index = tableView.indexPath(for: tableViewCell)?.row {
-    destinationVC.studentid = students[index].id
+    if let tableViewCell = sender as? UITableViewCell
+    {
+    if let index = tableView.indexPath(for: tableViewCell)?.row
+    {
+    destinationVC.studentid = students[index].studentID
+     }
     }
-    }
-    }
+                             }
+} // END OF PREPARE SEGUE
 }

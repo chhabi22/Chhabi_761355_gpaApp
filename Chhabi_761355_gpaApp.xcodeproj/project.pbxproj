@@ -13,9 +13,9 @@
 		9B65ABD4237F0BC50069A3F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B65ABD3237F0BC50069A3F7 /* Assets.xcassets */; };
 		9B65ABD7237F0BC50069A3F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B65ABD5237F0BC50069A3F7 /* LaunchScreen.storyboard */; };
 		9B65ABDF237F0E710069A3F7 /* StudentMainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B65ABDE237F0E710069A3F7 /* StudentMainTableViewController.swift */; };
-		9B65ABE1237F0E990069A3F7 /* StudentDeatilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B65ABE0237F0E990069A3F7 /* StudentDeatilViewController.swift */; };
 		9B65ABE3237F0EB20069A3F7 /* StudentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B65ABE2237F0EB20069A3F7 /* StudentData.swift */; };
-		9B65ABE5237F0ECF0069A3F7 /* StudentGPAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B65ABE4237F0ECF0069A3F7 /* StudentGPAViewController.swift */; };
+		9B65ABEA237F1A970069A3F7 /* DeatilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B65ABE9237F1A970069A3F7 /* DeatilViewController.swift */; };
+		9B65ABEC237F1ABB0069A3F7 /* GPAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B65ABEB237F1ABB0069A3F7 /* GPAViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,9 +27,9 @@
 		9B65ABD6237F0BC50069A3F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9B65ABD8237F0BC50069A3F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B65ABDE237F0E710069A3F7 /* StudentMainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentMainTableViewController.swift; sourceTree = "<group>"; };
-		9B65ABE0237F0E990069A3F7 /* StudentDeatilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDeatilViewController.swift; sourceTree = "<group>"; };
 		9B65ABE2237F0EB20069A3F7 /* StudentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentData.swift; sourceTree = "<group>"; };
-		9B65ABE4237F0ECF0069A3F7 /* StudentGPAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentGPAViewController.swift; sourceTree = "<group>"; };
+		9B65ABE9237F1A970069A3F7 /* DeatilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeatilViewController.swift; sourceTree = "<group>"; };
+		9B65ABEB237F1ABB0069A3F7 /* GPAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPAViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,9 +77,9 @@
 			isa = PBXGroup;
 			children = (
 				9B65ABDE237F0E710069A3F7 /* StudentMainTableViewController.swift */,
-				9B65ABE0237F0E990069A3F7 /* StudentDeatilViewController.swift */,
-				9B65ABE4237F0ECF0069A3F7 /* StudentGPAViewController.swift */,
 				9B65ABCE237F0BC40069A3F7 /* ViewController.swift */,
+				9B65ABE9237F1A970069A3F7 /* DeatilViewController.swift */,
+				9B65ABEB237F1ABB0069A3F7 /* GPAViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -172,10 +172,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B65ABCF237F0BC40069A3F7 /* ViewController.swift in Sources */,
+				9B65ABEA237F1A970069A3F7 /* DeatilViewController.swift in Sources */,
 				9B65ABCD237F0BC40069A3F7 /* AppDelegate.swift in Sources */,
+				9B65ABEC237F1ABB0069A3F7 /* GPAViewController.swift in Sources */,
 				9B65ABDF237F0E710069A3F7 /* StudentMainTableViewController.swift in Sources */,
-				9B65ABE5237F0ECF0069A3F7 /* StudentGPAViewController.swift in Sources */,
-				9B65ABE1237F0E990069A3F7 /* StudentDeatilViewController.swift in Sources */,
 				9B65ABE3237F0EB20069A3F7 /* StudentData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

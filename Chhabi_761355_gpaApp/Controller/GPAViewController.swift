@@ -1,5 +1,5 @@
 //
-//  StudentGPAViewController.swift
+//  GPAViewController.swift
 //  Chhabi_761355_gpaApp
 //
 //  Created by MacStudent on 2019-11-15.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-class StudentGPAViewController: UIViewController {
-    
+class GPAViewController: UIViewController {
+
     var studentid : Int?
     
     
