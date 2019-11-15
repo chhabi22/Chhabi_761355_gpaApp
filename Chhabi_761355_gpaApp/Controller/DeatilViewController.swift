@@ -75,7 +75,7 @@ class DeatilViewController: UIViewController {
             }
         } else {
             // empty ALERT
-            let emptyAlert = UIAlertController(title: "Empty Field", message: "You need to fill all field.", preferredStyle: .alert)
+            let emptyAlert = UIAlertController(title: "Sorry!", message: "Please fill all the fields.", preferredStyle: .alert)
             let okBtn = UIAlertAction(title: "OK", style: .cancel)
             
            // ACTION
