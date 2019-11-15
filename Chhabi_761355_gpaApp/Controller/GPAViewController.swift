@@ -10,7 +10,7 @@ import UIKit
 
 class GPAViewController: UIViewController {
 
-    var studentid : Int?
+    var studentIdentity: Int?
     
     
     

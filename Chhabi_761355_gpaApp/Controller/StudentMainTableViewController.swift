@@ -8,8 +8,10 @@
 
 import UIKit
 
-class StudentMainTableViewController: UITableViewController {
+class StudentMainTableViewController: UITableViewController, UISearchBarDelegate {
 
+ 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -95,7 +97,7 @@ class StudentMainTableViewController: UITableViewController {
     {
     if let index = tableView.indexPath(for: tableViewCell)?.row
     {
-    destinationVC.studentid = students[index].studentID
+    destinationVC.studentIdentity = students[index].studentID
      }
     }
                              }

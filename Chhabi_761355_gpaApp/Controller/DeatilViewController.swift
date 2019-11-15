@@ -33,7 +33,6 @@ class DeatilViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
     
     @IBAction func saveTapped(_ sender: UIButton) {
         if firstNameText.text != "" && lastNameText.text != "" && studentIDText.text != "" {
