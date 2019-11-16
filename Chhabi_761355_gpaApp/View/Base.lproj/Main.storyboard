@@ -28,6 +28,15 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cAL-Ze-K5C" id="1lK-y2-Ul2">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ovg-Zd-chY">
+                                            <rect key="frame" x="352" y="11" width="44" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="0tk-Z4-02Y" kind="show" id="28N-n2-Nut"/>
@@ -64,7 +73,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="QKe-ZT-t6R">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="semCell" id="QKe-ZT-t6R">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QKe-ZT-t6R" id="PlW-b0-2TX">
@@ -123,6 +132,9 @@
                                 <rect key="frame" x="290" y="155" width="64" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Calculate"/>
+                                <connections>
+                                    <action selector="calculateGPA:" destination="lFM-g9-2gP" eventType="touchUpInside" id="FCG-Tf-mNL"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AG5-In-4RL">
                                 <rect key="frame" x="200" y="278" width="182" height="30"/>
@@ -177,6 +189,11 @@
                         <viewLayoutGuide key="safeArea" id="5wm-x9-1l0"/>
                     </view>
                     <navigationItem key="navigationItem" id="mFA-5Z-lOP"/>
+                    <connections>
+                        <outlet property="gpaLb" destination="9fU-2B-Lgz" id="DbJ-dK-sja"/>
+                        <outletCollection property="courseLb" destination="9AP-AY-cf1" collectionClass="NSMutableArray" id="kPl-be-jLX"/>
+                        <outletCollection property="courseMarks" destination="9qM-EG-0TV" collectionClass="NSMutableArray" id="urN-eL-99U"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="olk-u0-8Mz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -9,12 +9,17 @@
 import UIKit
 
 class SemTableViewController: UITableViewController {
+    
+    // MARK: Variables
     var stIndex = -1
+    var semIndex = -1
+    //delegate
     var delMain : StudentMainTableViewController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        stIndex = delMain!.stIndex
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -26,23 +31,24 @@ class SemTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return Semester.semData.count
     }
 
-    /*
+   
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "semCell"){
 
-        // Configure the cell...
+        cell.textLabel?.text = Semester.semData[indexPath.row]
 
         return cell
     }
-    */
+        return UITableViewCell()
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -79,14 +85,20 @@ class SemTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+         if let gpaView = segue.destination as? GPAViewController
+         {
+                   gpaView.delGPA = self
+                   if let semCell = sender as? UITableViewCell
+                   {
 
+                       semIndex = tableView.indexPath(for: semCell)!.row
+                   }
+        }
+}
 }
