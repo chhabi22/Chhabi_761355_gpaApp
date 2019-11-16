@@ -9,6 +9,7 @@
 import UIKit
 
 class StudentMainTableViewController: UITableViewController, UISearchBarDelegate {
+    
     //MARK: Variables
     var stIndex = -1
     var Data = [String]()
@@ -16,13 +17,14 @@ class StudentMainTableViewController: UITableViewController, UISearchBarDelegate
     
     //MARK: Outlets
    
-    
     @IBOutlet weak var searchBar: UISearchBar!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        nerdStuData = Data
+        searchBar.delegate = self
 // searchController.searchResultsUpdater = self
 //
 // searchController.dimsBackgroundDuringPresentation = false
@@ -32,8 +34,12 @@ class StudentMainTableViewController: UITableViewController, UISearchBarDelegate
 //    tableView.tableHeaderView = searchController.searchBar
 
     }
-
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
     
 // MARK: - Table view data source
 
@@ -44,7 +50,7 @@ class StudentMainTableViewController: UITableViewController, UISearchBarDelegate
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return Student.studentData.count
+        return nerdStuData.count
     }
 
     
@@ -52,13 +58,33 @@ class StudentMainTableViewController: UITableViewController, UISearchBarDelegate
         // recycle cells
         let cell = tableView.dequeueReusableCell(withIdentifier: "studentCell", for: indexPath)
         
-      
-        // show student name on the label
-        cell.textLabel?.text = "\(Student.studentData[indexPath.row].firstName) \(Student.studentData[indexPath.row].lastName)"
+        cell.textLabel?.text = nerdStuData[indexPath.row]
+        cell.detailTextLabel?.text = String(format: "%.2f", Student.studentData[indexPath.row].studentCGPA)
         return cell
     }
     
-  
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+       nerdStuData = searchText.isEmpty ? Data : Data.filter { (item: String) -> Bool in
+                
+                return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+            }
+            
+            tableView.reloadData()
+    }
+  func updateStudent(){
+          Data = []
+      for stu in Student.studentData.indices
+      {
+          let st = Student.studentData[stu]
+          Data.append(st.firstName + " " + st.lastName)
+      }
+      
+      nerdStuData = Data
+      tableView.reloadData()
+      
+  }
+    
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

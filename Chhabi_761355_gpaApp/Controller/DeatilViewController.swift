@@ -23,28 +23,10 @@ class DeatilViewController: UIViewController {
     {
         super.viewDidLoad()
 
-        let tap = UITapGestureRecognizer(target: self, action: #selector(removeKeyBoard))
-
-        self.view.addGestureRecognizer(tap)
-        
     }
     
-    
-    
-    @objc func removeKeyBoard()
-    {
-
-        firstNameText.resignFirstResponder()
-
-        lastNameText.resignFirstResponder()
-
-        studentIDText.resignFirstResponder()
-
-    }
-
-    
-
-    
+  
+ 
 // SAVE BUTTON
     @IBAction func saveTapped(_ sender: UIButton) {
         
@@ -54,65 +36,73 @@ class DeatilViewController: UIViewController {
             self.oops() ; return
             
         }
-            
-            // if id is taken - return with proper alert.
+            // CHECK same ID
             
             for stu in Student.studentData{
                 
                 if stu.studentID == studentIDText.text {
                     
-                 let aC = UIAlertController(title: "Sorry!!", message: "ID: \(studentIDText.text!) is already taken.", preferredStyle: .alert)
-                 
-                 let ok = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                 
-                 aC.addAction(ok)
-                 self.present(aC, animated: true, completion: nil)
-                    //idTakenAlert()
-                    return
-                    
+                let idAlert = UIAlertController(title: "Sorry!!", message: "ID: \(studentIDText.text!) is already taken.", preferredStyle: .alert)
+                              
+                              let ok = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                              
+                              idAlert.addAction(ok)
+                              self.present(idAlert, animated: true, completion: nil)
+                 return
                 }
                 
             }
-             let aC = UIAlertController(title: nil, message: "Are you sure ?", preferredStyle: .actionSheet)
-                       
-                       let n = UIAlertAction(title: "No Way!", style: .cancel, handler: nil)
-                       let y = UIAlertAction(title: "Yes, I'm Sure!", style: .default, handler: { (action) in
-                           
+             // save
+         let sAlert = UIAlertController(title: nil, message: "Are you sure ?", preferredStyle: .actionSheet)
+                      
+                      let n = UIAlertAction(title: "No Way!", style: .cancel, handler: nil)
+                      let y = UIAlertAction(title: "Yes, I'm Sure!", style: .default, handler: { (action) in
                           
-                        let aC = UIAlertController(title: "New Contact Saved", message: "\(self.firstNameText.text!) is now a student.", preferredStyle: .alert)
-                                           
-                                           let ok = UIAlertAction(title: "OK", style: .cancel, handler: {(action) in
-                                               let s = Student(firstName: self.firstNameText.text!, lastName: self.lastNameText.text!, studentID: self.studentIDText.text!)
-                           //                let s = Student(first_name: self.firstNameText.text!, last_name: self.lastNameText.text!, id: self.studentIDText.text!)
-                                           Student.studentData.append(s)
-                                           self.firstNameText.text = ""
-                                           self.lastNameText.text = ""
-                                           self.studentIDText.text = ""
-                                               
-                                           })
-                                           
-                                           aC.addAction(ok)
-                                           self.present(aC, animated: true, completion: nil)
-                       })
-                       aC.addAction(n)
-                       aC.addAction(y)
-                       self.present(aC, animated: true, completion: nil)
-                       
-        }
+                         
+                          self.contactSavedAlert()
+                          
+                      })
+                      sAlert.addAction(n)
+                      sAlert.addAction(y)
+                      self.present(sAlert, animated: true, completion: nil)
+        
+    }
         
 
-           
-            
+
+               func contactSavedAlert(){
+                   
+                   let contactAlert = UIAlertController(title: "New Contact Saved", message: "\(firstNameText.text!) is now a student.", preferredStyle: .alert)
+                   
+                   let ok = UIAlertAction(title: "OK", style: .cancel, handler: {(action) in
+                   let s = Student(firstName: self.firstNameText.text!, lastName: self.lastNameText.text!, studentID: self.studentIDText.text!)
+                   Student.studentData.append(s)
+                   self.firstNameText.text = nil
+                   self.lastNameText.text = nil
+                   self.studentIDText.text = nil
+                       
+                   })
+                   
+                   contactAlert.addAction(ok)
+                   self.present(contactAlert, animated: true, completion: nil)
+               }
             func oops(){
                 
-                let aC = UIAlertController(title: nil, message: "Please fill all the details!", preferredStyle: .alert)
+                let oopsAlert = UIAlertController(title: "OOPS!!", message: "Please fill all the Fields!", preferredStyle: .alert)
                 
                 let ok = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                 
-                aC.addAction(ok)
-                self.present(aC, animated: true, completion: nil)
+                oopsAlert.addAction(ok)
+                self.present(oopsAlert, animated: true, completion: nil)
                 
             }
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        
+        delMain?.updateStudent()
+        
+        
+    }
     
 }
     
