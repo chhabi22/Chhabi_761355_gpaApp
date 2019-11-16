@@ -10,81 +10,112 @@ import UIKit
 
 class DeatilViewController: UIViewController {
     
+    var delMain: StudentMainTableViewController?
+    
+    
     // outlets of text fields
     @IBOutlet weak var firstNameText: UITextField!
     @IBOutlet weak var lastNameText: UITextField!
     @IBOutlet weak var studentIDText: UITextField!
     
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let tap = UITapGestureRecognizer(target: self, action: #selector(removeKeyBoard))
+
+        self.view.addGestureRecognizer(tap)
+        
     }
     
+    
+    
+    @objc func removeKeyBoard()
+    {
 
-    /*
-    // MARK: - Navigation
+        firstNameText.resignFirstResponder()
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        lastNameText.resignFirstResponder()
+
+        studentIDText.resignFirstResponder()
+
     }
-    */
+
+    
 
     
 // SAVE BUTTON
     @IBAction func saveTapped(_ sender: UIButton) {
-        if firstNameText.text != "" && lastNameText.text != "" && studentIDText.text != "" {
-            if students.first(where: {$0.studentID == Int(studentIDText.text!)}) == nil {
-// Save ALERT
-                let saveAlert = UIAlertController(title: "Save", message: "Are you sure?", preferredStyle: .alert)
+        
+        guard self.firstNameText.text != "" && self.lastNameText.text != "" && self.studentIDText.text != "" else
+        {
                 
-                
-                let yesBtn = UIAlertAction(title: "Yes, I'm Sure!", style: .default, handler: { (ACTION) in
-                    students.append(Student(firstName: self.firstNameText!.text!, lastName: self.lastNameText.text!, studentID: Int(self.studentIDText.text!)!))
-                    
-// CONTACT SAVE ALERT
-                let detailSavedAlert = UIAlertController(title: "New Contact Saved", message: "\(self.firstNameText!.text!) is now a student.", preferredStyle: .alert)
-                let okBtn = UIAlertAction(title: "OK", style: .cancel)
-                    detailSavedAlert.addAction(okBtn)
-                self.present(detailSavedAlert, animated: true, completion: nil)
-                self.lastNameText.text = nil
-                self.firstNameText.text = nil
-                self.studentIDText.text = nil
-                self.firstNameText.resignFirstResponder()
-                self.lastNameText.resignFirstResponder()
-                self.studentIDText.resignFirstResponder()                })
-                //no way ALERT
-                let noBtn = UIAlertAction(title: "No Way!", style: .cancel)
-
-  // ACTIONS
-                saveAlert.addAction(yesBtn)
-                saveAlert.addAction(noBtn)
-                
-                self.present(saveAlert, animated: true, completion: nil)
-                
-            } else {
-                
-   // IDENTICAL STUDENT NAME ALERT
-                let identicalStudent = UIAlertController(title: "Student Already Exists! ", message: "Give another ID", preferredStyle: .alert)
-                let okBtn = UIAlertAction(title: "OK", style: .cancel)
-
-               identicalStudent.addAction(okBtn)
-                self.present(identicalStudent, animated: true, completion: nil)
-            }
-        } else {
-  // empty ALERT
-            let emptyAlert = UIAlertController(title: "Sorry!", message: "Please fill all the fields.", preferredStyle: .alert)
-            let okBtn = UIAlertAction(title: "OK", style: .cancel)
+            self.oops() ; return
             
-    // ACTION
-            emptyAlert.addAction(okBtn)
-            self.present(emptyAlert, animated: true, completion: nil)
         }
-    }
-    }
+            
+            // if id is taken - return with proper alert.
+            
+            for stu in Student.studentData{
+                
+                if stu.studentID == studentIDText.text {
+                    
+                 let aC = UIAlertController(title: "Sorry!!", message: "ID: \(studentIDText.text!) is already taken.", preferredStyle: .alert)
+                 
+                 let ok = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                 
+                 aC.addAction(ok)
+                 self.present(aC, animated: true, completion: nil)
+                    //idTakenAlert()
+                    return
+                    
+                }
+                
+            }
+             let aC = UIAlertController(title: nil, message: "Are you sure ?", preferredStyle: .actionSheet)
+                       
+                       let n = UIAlertAction(title: "No Way!", style: .cancel, handler: nil)
+                       let y = UIAlertAction(title: "Yes, I'm Sure!", style: .default, handler: { (action) in
+                           
+                          
+                        let aC = UIAlertController(title: "New Contact Saved", message: "\(self.firstNameText.text!) is now a student.", preferredStyle: .alert)
+                                           
+                                           let ok = UIAlertAction(title: "OK", style: .cancel, handler: {(action) in
+                                               let s = Student(firstName: self.firstNameText.text!, lastName: self.lastNameText.text!, studentID: self.studentIDText.text!)
+                           //                let s = Student(first_name: self.firstNameText.text!, last_name: self.lastNameText.text!, id: self.studentIDText.text!)
+                                           Student.studentData.append(s)
+                                           self.firstNameText.text = ""
+                                           self.lastNameText.text = ""
+                                           self.studentIDText.text = ""
+                                               
+                                           })
+                                           
+                                           aC.addAction(ok)
+                                           self.present(aC, animated: true, completion: nil)
+                       })
+                       aC.addAction(n)
+                       aC.addAction(y)
+                       self.present(aC, animated: true, completion: nil)
+                       
+        }
+        
+
+           
+            
+            func oops(){
+                
+                let aC = UIAlertController(title: nil, message: "Please fill all the details!", preferredStyle: .alert)
+                
+                let ok = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                
+                aC.addAction(ok)
+                self.present(aC, animated: true, completion: nil)
+                
+            }
+    
+}
+    
     
     
     

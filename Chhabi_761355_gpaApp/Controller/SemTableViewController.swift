@@ -1,64 +1,49 @@
 //
-//  StudentMainTableViewController.swift
+//  SemTableViewController.swift
 //  Chhabi_761355_gpaApp
 //
-//  Created by MacStudent on 2019-11-15.
+//  Created by MacStudent on 2019-11-16.
 //  Copyright © 2019 MacStudent. All rights reserved.
 //
 
 import UIKit
 
-class StudentMainTableViewController: UITableViewController, UISearchBarDelegate {
-    //MARK: Variables
+class SemTableViewController: UITableViewController {
     var stIndex = -1
-    var Data = [String]()
-    var nerdStuData = [String]() //filterd
-    
-    //MARK: Outlets
-   
-    
-    @IBOutlet weak var searchBar: UISearchBar!
-    
-    
+    var delMain : StudentMainTableViewController?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-// searchController.searchResultsUpdater = self
-//
-// searchController.dimsBackgroundDuringPresentation = false
-//
-// definesPresentationContext = true
-//
-//    tableView.tableHeaderView = searchController.searchBar
 
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-
-    
-// MARK: - Table view data source
+    // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return Student.studentData.count
+        return 0
     }
 
-    
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // recycle cells
-        let cell = tableView.dequeueReusableCell(withIdentifier: "studentCell", for: indexPath)
-        
-      
-        // show student name on the label
-        cell.textLabel?.text = "\(Student.studentData[indexPath.row].firstName) \(Student.studentData[indexPath.row].lastName)"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
+        // Configure the cell...
+
         return cell
     }
-    
-  
+    */
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -94,38 +79,14 @@ class StudentMainTableViewController: UITableViewController, UISearchBarDelegate
     }
     */
 
-  
-// MARK: - Navigation
+    /*
+    // MARK: - Navigation
 
-   
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
- {
-       
-    if let detail = segue.destination as? DeatilViewController
-    {
-        detail.delMain = self
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
     }
-    if let sem = segue.destination as? SemTableViewController
-    {
-        sem.delMain = self
-        if let cell = sender as? UITableViewCell{
-            
-            stIndex = tableView.indexPath(for: cell)!.row
-            
-        }
-        
-    }
-                                    
-} // END OF PREPARE SEGUE
-    
-} //End of class
-//if (segue.identifier == "gpa") {
-//
-//let destinationVC = segue.destination as! GPAViewController
-//if let tableViewCell = sender as? UITableViewCell
-//{
-//if let index = tableView.indexPath(for: tableViewCell)?.row
-//   {
-//    destinationVC.studentIdentity = Student.studentData[indexp].studentID
-//    }
-//}
+    */
+
+}

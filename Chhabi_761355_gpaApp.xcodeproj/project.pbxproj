@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B3585E023803DF1009948C5 /* SemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3585DF23803DF1009948C5 /* SemData.swift */; };
+		9B3585E223804F6D009948C5 /* SemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B3585E123804F6D009948C5 /* SemTableViewController.swift */; };
 		9B65ABCD237F0BC40069A3F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B65ABCC237F0BC40069A3F7 /* AppDelegate.swift */; };
 		9B65ABCF237F0BC40069A3F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B65ABCE237F0BC40069A3F7 /* ViewController.swift */; };
 		9B65ABD2237F0BC40069A3F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B65ABD0237F0BC40069A3F7 /* Main.storyboard */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9B3585DF23803DF1009948C5 /* SemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemData.swift; sourceTree = "<group>"; };
+		9B3585E123804F6D009948C5 /* SemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemTableViewController.swift; sourceTree = "<group>"; };
 		9B65ABC9237F0BC40069A3F7 /* Chhabi_761355_gpaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chhabi_761355_gpaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B65ABCC237F0BC40069A3F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B65ABCE237F0BC40069A3F7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +87,7 @@
 				9B65ABE9237F1A970069A3F7 /* DeatilViewController.swift */,
 				9B65ABEB237F1ABB0069A3F7 /* GPAViewController.swift */,
 				9B65ABCE237F0BC40069A3F7 /* ViewController.swift */,
+				9B3585E123804F6D009948C5 /* SemTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -91,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				9B65ABE2237F0EB20069A3F7 /* StudentData.swift */,
+				9B3585DF23803DF1009948C5 /* SemData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -186,6 +192,8 @@
 				9B65ABCF237F0BC40069A3F7 /* ViewController.swift in Sources */,
 				9B65ABEA237F1A970069A3F7 /* DeatilViewController.swift in Sources */,
 				9B65ABCD237F0BC40069A3F7 /* AppDelegate.swift in Sources */,
+				9B3585E223804F6D009948C5 /* SemTableViewController.swift in Sources */,
+				9B3585E023803DF1009948C5 /* SemData.swift in Sources */,
 				9B65ABEC237F1ABB0069A3F7 /* GPAViewController.swift in Sources */,
 				9B65ABDF237F0E710069A3F7 /* StudentMainTableViewController.swift in Sources */,
 				9B65ABE3237F0EB20069A3F7 /* StudentData.swift in Sources */,
