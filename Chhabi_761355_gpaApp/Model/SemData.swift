@@ -12,10 +12,9 @@ struct Semester
 
 {
 
-static var semData = ["Semester1","Semester2","Semester3"]
+static var semData = ["Semester 1","Semester 2","Semester 3"]
 
-var courseList =
- [
+ static var courseList = [
         
     ["MAD 3004", "MAD 2303", "MAD 3463", "MAD 3115", "MAD 3125"],
     ["MAD 3144", "MAD 4114", "MAD 4124", "MAD 5254", "MAD 5264"],

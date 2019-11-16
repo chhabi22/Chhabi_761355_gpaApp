@@ -31,10 +31,10 @@ class GPAViewController: UIViewController {
         super.viewDidLoad()
          self.navigationItem.title = Semester.semData[delGPA!.semIndex]
         
-        for course in courseLb.indices {
+        for cc in courseLb.indices {
 
-            courseLb[course].text = Semester.semData[delGPA!.semIndex]
-            courseMarks[course].text = String(Student.studentData[delGPA!.stIndex].studentMarks[delGPA!.semIndex][course])
+            courseLb[cc].text = Semester.courseList[delGPA!.semIndex][cc]
+            courseMarks[cc].text = String(Student.studentData[delGPA!.stIndex].studentMarks[delGPA!.semIndex][cc])
 
                 }
 
