@@ -53,7 +53,7 @@ class GPAViewController: UIViewController {
                    
             Student.studentData[delGPA!.stIndex].studentMarks[delGPA!.semIndex][c] = marks!
  
-            let g = Double(gpaCalc(grades: marks!))
+            let g = Double(gpaCalc(marks!))
                        
            let credit = CourceCredit(courseLb[c].text!)
                    
@@ -84,7 +84,7 @@ class GPAViewController: UIViewController {
         
     
     
-    func gpaCalc(grades: Int) -> Double {
+    func gpaCalc(_ grades: Int) -> Double {
 
     switch grades
         
